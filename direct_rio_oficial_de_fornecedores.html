@@ -1,0 +1,1683 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Directório Oficial de Fornecedores 2026 - Pôster & Catálogo</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Font Awesome para ícones refinados -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap');
+
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: #0b1329;
+      color: #1e293b;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .font-mono-num {
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    /* Barra de rolagem personalizada para as listas dos cards */
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 5px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: rgba(0, 0, 0, 0.03);
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #cbd5e1;
+      border-radius: 999px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+      background: #94a3b8;
+    }
+
+    /* Efeitos de gradiente para cabeçalhos de cartão */
+    .card-header-blue {
+      background: linear-gradient(135deg, #1e40af, #3b82f6);
+    }
+    .card-header-pink {
+      background: linear-gradient(135deg, #9d174d, #ec4899);
+    }
+    .card-header-purple {
+      background: linear-gradient(135deg, #5b21b6, #8b5cf6);
+    }
+    .card-header-amber {
+      background: linear-gradient(135deg, #b45309, #f59e0b);
+    }
+    .card-header-emerald {
+      background: linear-gradient(135deg, #047857, #10b981);
+    }
+    .card-header-cyan {
+      background: linear-gradient(135deg, #0e7490, #06b6d4);
+    }
+    .card-header-slate {
+      background: linear-gradient(135deg, #334155, #64748b);
+    }
+    .card-header-indigo {
+      background: linear-gradient(135deg, #3730a3, #6366f1);
+    }
+
+    /* Animação do Toast */
+    .toast-anim {
+      animation: slideIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+    @keyframes slideIn {
+      from { transform: translateY(100%); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    /* Regras de Impressão e Exportação em Pôster/PDF */
+    @media print {
+      body {
+        background: #ffffff !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        color: #000000 !important;
+      }
+      .no-print {
+        display: none !important;
+      }
+      .print-shadow-none {
+        box-shadow: none !important;
+        border: none !important;
+      }
+      .custom-scrollbar {
+        max-height: none !important;
+        overflow: visible !important;
+      }
+      .poster-container {
+        max-width: 100% !important;
+        margin: 0 !important;
+        padding: 10mm !important;
+        box-shadow: none !important;
+        border-radius: 0 !important;
+      }
+      .card-box {
+        break-inside: avoid;
+        page-break-inside: avoid;
+        border: 1px solid #cbd5e1 !important;
+      }
+      .grid-layout {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 12px !important;
+      }
+    }
+  </style>
+</head>
+<body class="min-h-screen py-6 px-3 sm:px-6 lg:px-10 flex flex-col items-center">
+
+  <!-- ================= TOP TOOLBAR INTERATIVA (NO-PRINT) ================= -->
+  <header class="w-full max-w-7xl mb-6 bg-slate-900/90 backdrop-blur-md border border-slate-800 rounded-2xl p-4 sm:p-5 shadow-2xl text-white no-print">
+    <div class="flex flex-col lg:flex-row items-center justify-between gap-4">
+      
+      <!-- Título de Controle -->
+      <div class="flex items-center space-x-3 text-center sm:text-left">
+        <div class="w-11 h-11 rounded-xl bg-gradient-to-tr from-blue-600 to-indigo-500 flex items-center justify-center text-xl shadow-lg shadow-blue-500/20">
+          <i class="fa-solid fa-address-book"></i>
+        </div>
+        <div>
+          <h2 class="text-lg font-bold tracking-tight text-white flex items-center gap-2">
+            Directório Executivo 2026
+            <span class="text-xs px-2 py-0.5 rounded-full bg-blue-500/20 text-blue-400 font-medium border border-blue-500/30">125+ Contatos</span>
+          </h2>
+          <p class="text-xs text-slate-400">Pesquise, filtre por departamento e abra no WhatsApp com 1 toque</p>
+        </div>
+      </div>
+
+      <!-- Barra de Busca Rápida -->
+      <div class="w-full lg:w-96 relative">
+        <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-sm"></i>
+        <input 
+          type="text" 
+          id="searchInput" 
+          placeholder="Buscar produto, marca ou número..." 
+          class="w-full pl-10 pr-10 py-2.5 bg-slate-800/80 border border-slate-700 rounded-xl text-sm text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
+        >
+        <button id="clearSearchBtn" class="hidden absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-white text-xs">
+          <i class="fa-solid fa-circle-xmark"></i>
+        </button>
+      </div>
+
+      <!-- Ações de Acesso Rápido -->
+      <div class="flex items-center gap-2.5 w-full lg:w-auto justify-end">
+        <button 
+          onclick="window.print()" 
+          class="flex-1 lg:flex-initial px-4 py-2.5 bg-blue-600 hover:bg-blue-500 active:scale-95 text-white font-semibold text-xs rounded-xl shadow-lg shadow-blue-600/30 transition flex items-center justify-center gap-2"
+          title="Salvar como PDF em alta definição ou Imprimir"
+        >
+          <i class="fa-solid fa-print"></i>
+          <span>Imprimir / Salvar PDF</span>
+        </button>
+        <button 
+          id="toggleCompactBtn" 
+          onclick="toggleCompactMode()" 
+          class="px-3.5 py-2.5 bg-slate-800 hover:bg-slate-700 active:scale-95 text-slate-300 hover:text-white text-xs font-semibold rounded-xl border border-slate-700 transition flex items-center gap-1.5"
+          title="Alternar entre visualização completa e compacta"
+        >
+          <i class="fa-solid fa-table-cells-large"></i>
+          <span class="hidden sm:inline">Compactar</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Filtros de Categorias Pílula -->
+    <div class="mt-4 pt-3 border-t border-slate-800 flex items-center gap-1.5 overflow-x-auto pb-1 text-xs">
+      <span class="text-slate-400 font-medium mr-1 flex items-center gap-1">
+        <i class="fa-solid fa-filter text-[10px]"></i> Filtro:
+      </span>
+      <button onclick="filterCategory('all')" class="cat-pill active px-3 py-1.5 rounded-lg bg-blue-600 text-white font-medium whitespace-nowrap transition">
+        Todos (8)
+      </button>
+      <button onclick="filterCategory('eletronicos')" class="cat-pill px-3 py-1.5 rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700 hover:text-white whitespace-nowrap transition">
+        📱 Eletrónicos
+      </button>
+      <button onclick="filterCategory('vestuario')" class="cat-pill px-3 py-1.5 rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700 hover:text-white whitespace-nowrap transition">
+        👗 Roupas
+      </button>
+      <button onclick="filterCategory('cabelos')" class="cat-pill px-3 py-1.5 rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700 hover:text-white whitespace-nowrap transition">
+        💇‍♀️ Cabelo & Próteses
+      </button>
+      <button onclick="filterCategory('beleza')" class="cat-pill px-3 py-1.5 rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700 hover:text-white whitespace-nowrap transition">
+        💎 Jóias & Óculos
+      </button>
+      <button onclick="filterCategory('calcados')" class="cat-pill px-3 py-1.5 rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700 hover:text-white whitespace-nowrap transition">
+        👜 Calçados & Bolsas
+      </button>
+      <button onclick="filterCategory('casa')" class="cat-pill px-3 py-1.5 rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700 hover:text-white whitespace-nowrap transition">
+        🏠 Casa & Decoração
+      </button>
+      <button onclick="filterCategory('maquinas')" class="cat-pill px-3 py-1.5 rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700 hover:text-white whitespace-nowrap transition">
+        ⚙️ Máquinas & Obras
+      </button>
+      <button onclick="filterCategory('infantil')" class="cat-pill px-3 py-1.5 rounded-lg bg-slate-800 text-slate-300 hover:bg-slate-700 hover:text-white whitespace-nowrap transition">
+        🧸 Escolar & Diversos
+      </button>
+    </div>
+  </header>
+
+  <!-- ================= O PÔSTER DE FORNECEDORES (CORPO PRINCIPAL) ================= -->
+  <main id="posterContainer" class="poster-container w-full max-w-7xl bg-white rounded-3xl shadow-2xl p-6 sm:p-10 border border-slate-200 transition-all">
+    
+    <!-- CABEÇALHO DO PÔSTER -->
+    <div class="text-center border-b-2 border-slate-100 pb-8 mb-8 relative">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-200 text-blue-700 text-xs font-bold uppercase tracking-wider mb-3">
+        <i class="fa-solid fa-shield-halved"></i> Diretório de Importação & Negócios
+      </div>
+      <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-900 tracking-tight uppercase">
+        Contactos Fornecedores
+      </h1>
+      <p class="text-sm sm:text-base text-slate-500 font-medium max-w-2xl mx-auto mt-2">
+        Lista Master Organizada por Categoria &bull; Contactos Internacionais Verificados &bull; 2026
+      </p>
+
+      <!-- Badge informativo de metadados do documento -->
+      <div class="flex flex-wrap items-center justify-center gap-4 text-xs font-semibold text-slate-500 mt-4">
+        <span class="flex items-center gap-1.5 bg-slate-100 px-3 py-1 rounded-md">
+          <i class="fa-solid fa-earth-americas text-blue-600"></i> China, Brasil, Paquistão, Turquia & Reino Unido
+        </span>
+        <span class="flex items-center gap-1.5 bg-slate-100 px-3 py-1 rounded-md">
+          <i class="fa-solid fa-bolt text-amber-500"></i> Clique para conversar no WhatsApp
+        </span>
+      </div>
+    </div>
+
+    <!-- GRID DOS 8 BLOCOS DE CATEGORIAS -->
+    <div id="gridWrapper" class="grid-layout grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+      <!-- ================= 1. ELETRÓNICOS & INFORMÁTICA ================= -->
+      <section class="card-box flex flex-col bg-slate-50 border border-slate-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition" data-category="eletronicos">
+        <div class="card-header-blue text-white px-4 py-3 font-bold text-sm tracking-wide flex items-center justify-between">
+          <span class="flex items-center gap-2">
+            <i class="fa-solid fa-mobile-screen-button"></i> 1. Eletrónicos & TI
+          </span>
+          <span class="cat-count text-[11px] bg-white/20 px-2 py-0.5 rounded-full font-mono">27</span>
+        </div>
+        <div class="p-3 bg-white flex-1 flex flex-col">
+          <ul class="supplier-list space-y-1.5 custom-scrollbar max-h-[480px] overflow-y-auto pr-1 text-xs">
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Agnus iPhones Usados" data-number="+8613826196782">
+              <span class="font-medium text-slate-800 pr-2">#1 Agnus (iPhones Usados)</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8613826196782')" class="font-mono-num font-bold text-blue-700 bg-blue-50 group-hover:bg-blue-100 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer" title="Clique para copiar">+86 138 2619 6782</button>
+                <a href="https://wa.me/8613826196782" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print" title="Abrir no WhatsApp"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Capas de iPhone" data-number="+8618923163475">
+              <span class="font-medium text-slate-800 pr-2">#32 Capas de iPhone</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8618923163475')" class="font-mono-num font-bold text-blue-700 bg-blue-50 group-hover:bg-blue-100 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer" title="Clique para copiar">+86 189 2316 3475</button>
+                <a href="https://wa.me/8618923163475" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print" title="Abrir no WhatsApp"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Colunas de Som" data-number="+8615367498392">
+              <span class="font-medium text-slate-800 pr-2">#38 Colunas de Som</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8615367498392')" class="font-mono-num font-bold text-blue-700 bg-blue-50 group-hover:bg-blue-100 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer" title="Clique para copiar">+86 153 6749 8392</button>
+                <a href="https://wa.me/8615367498392" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print" title="Abrir no WhatsApp"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Colunas de Carro" data-number="+8615920309369">
+              <span class="font-medium text-slate-800 pr-2">#39 Colunas de Carro</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8615920309369')" class="font-mono-num font-bold text-blue-700 bg-blue-50 group-hover:bg-blue-100 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer" title="Clique para copiar">+86 159 2030 9369</button>
+                <a href="https://wa.me/8615920309369" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print" title="Abrir no WhatsApp"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Colunas para Sala" data-number="+8613632929962">
+              <span class="font-medium text-slate-800 pr-2">#40 Colunas para Sala</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8613632929962')" class="font-mono-num font-bold text-blue-700 bg-blue-50 group-hover:bg-blue-100 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer" title="Clique para copiar">+86 136 3292 9962</button>
+                <a href="https://wa.me/8613632929962" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print" title="Abrir no WhatsApp"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Computador Fornecedor" data-number="+8618176776905">
+              <span class="font-medium text-slate-800 pr-2">#41 Computador</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8618176776905')" class="font-mono-num font-bold text-blue-700 bg-blue-50 group-hover:bg-blue-100 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer" title="Clique para copiar">+86 181 7677 6905</button>
+                <a href="https://wa.me/8618176776905" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print" title="Abrir no WhatsApp"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="PC Escritorio" data-number="+8618194016605">
+              <span class="font-medium text-slate-800 pr-2">#48 PC p/ Escritório</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8618194016605')" class="font-mono-num font-bold text-blue-700 bg-blue-50 group-hover:bg-blue-100 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer" title="Clique para copiar">+86 181 9401 6605</button>
+                <a href="https://wa.me/8618194016605" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print" title="Abrir no WhatsApp"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Fornecedor Drone" data-number="+8613433881632">
+              <span class="font-medium text-slate-800 pr-2">#54 Drone</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8613433881632')" class="font-mono-num font-bold text-blue-700 bg-blue-50 group-hover:bg-blue-100 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer" title="Clique para copiar">+86 134 3388 1632</button>
+                <a href="https://wa.me/8613433881632" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print" title="Abrir no WhatsApp"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Fornecedor Flash" data-number="+8613021701149">
+              <span class="font-medium text-slate-800 pr-2">#55 Flash</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8613021701149')" class="font-mono-num font-bold text-blue-700 bg-blue-50 group-hover:bg-blue-100 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer" title="Clique para copiar">+86 130 2170 1149</button>
+                <a href="https://wa.me/8613021701149" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print" title="Abrir no WhatsApp"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Fones de ouvido" data-number="+8618926429160">
+              <span class="font-medium text-slate-800 pr-2">#57 Fones de Ouvido</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8618926429160')" class="font-mono-num font-bold text-blue-700 bg-blue-50 group-hover:bg-blue-100 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer" title="Clique para copiar">+86 189 2642 9160</button>
+                <a href="https://wa.me/8618926429160" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print" title="Abrir no WhatsApp"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Laptop Fornecedor" data-number="+8619337129716">
+              <span class="font-medium text-slate-800 pr-2">#60 Laptop</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8619337129716')" class="font-mono-num font-bold text-blue-700 bg-blue-50 group-hover:bg-blue-100 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer" title="Clique para copiar">+86 193 3712 9716</button>
+                <a href="https://wa.me/8619337129716" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print" title="Abrir no WhatsApp"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Máquina impressora portátil" data-number="+8618327092298">
+              <span class="font-medium text-slate-800 pr-2">#66 Impressora Portátil</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8618327092298')" class="font-mono-num font-bold text-blue-700 bg-blue-50 group-hover:bg-blue-100 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer" title="Clique para copiar">+86 183 2709 2298</button>
+                <a href="https://wa.me/8618327092298" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print" title="Abrir no WhatsApp"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Fornecedor de impressoras" data-number="+8619512886405">
+              <span class="font-medium text-slate-800 pr-2">#68 Impressoras</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8619512886405')" class="font-mono-num font-bold text-blue-700 bg-blue-50 group-hover:bg-blue-100 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer" title="Clique para copiar">+86 195 1288 6405</button>
+                <a href="https://wa.me/8619512886405" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print" title="Abrir no WhatsApp"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Fornecedor PS5" data-number="+17652178809">
+              <span class="font-medium text-slate-800 pr-2">#94 Consola PS5</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+17652178809')" class="font-mono-num font-bold text-blue-700 bg-blue-50 group-hover:bg-blue-100 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer" title="Clique para copiar">+1 (765) 217-8809</button>
+                <a href="https://wa.me/17652178809" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print" title="Abrir no WhatsApp"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Ring Light" data-number="+8618033495077">
+              <span class="font-medium text-slate-800 pr-2">#97 Ring Light</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8618033495077')" class="font-mono-num font-bold text-blue-700 bg-blue-50 group-hover:bg-blue-100 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer" title="Clique para copiar">+86 180 3349 5077</button>
+                <a href="https://wa.me/8618033495077" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print" title="Abrir no WhatsApp"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Fornecedor de Som" data-number="+8613480919075">
+              <span class="font-medium text-slate-800 pr-2">#104 Caixa de Som</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8613480919075')" class="font-mono-num font-bold text-blue-700 bg-blue-50 group-hover:bg-blue-100 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer" title="Clique para copiar">+86 134 8091 9075</button>
+                <a href="https://wa.me/8613480919075" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print" title="Abrir no WhatsApp"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Fornecedor TV" data-number="+8613302498787">
+              <span class="font-medium text-slate-800 pr-2">#115 Smart TV</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8613302498787')" class="font-mono-num font-bold text-blue-700 bg-blue-50 group-hover:bg-blue-100 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer" title="Clique para copiar">+86 133 0249 8787</button>
+                <a href="https://wa.me/8613302498787" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print" title="Abrir no WhatsApp"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Acessorios Celular" data-number="+8613602278630">
+              <span class="font-medium text-slate-800 pr-2">#117 Acessórios Celular</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8613602278630')" class="font-mono-num font-bold text-blue-700 bg-blue-50 group-hover:bg-blue-100 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer" title="Clique para copiar">+86 136 0227 8630</button>
+                <a href="https://wa.me/8613602278630" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print" title="Abrir no WhatsApp"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Acessorios PC" data-number="+8618022724577">
+              <span class="font-medium text-slate-800 pr-2">#118 Acessórios PC</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8618022724577')" class="font-mono-num font-bold text-blue-700 bg-blue-50 group-hover:bg-blue-100 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer" title="Clique para copiar">+86 180 2272 4577</button>
+                <a href="https://wa.me/8618022724577" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print" title="Abrir no WhatsApp"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Celulares Fornecedor" data-number="+8618902471837">
+              <span class="font-medium text-slate-800 pr-2">#129 Celulares</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8618902471837')" class="font-mono-num font-bold text-blue-700 bg-blue-50 group-hover:bg-blue-100 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer" title="Clique para copiar">+86 189 0247 1837</button>
+                <a href="https://wa.me/8618902471837" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print" title="Abrir no WhatsApp"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Material impressora" data-number="+8618879942285">
+              <span class="font-medium text-slate-800 pr-2">#131 Mat. Impressora</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8618879942285')" class="font-mono-num font-bold text-blue-700 bg-blue-50 group-hover:bg-blue-100 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer" title="Clique para copiar">+86 188 7994 2285</button>
+                <a href="https://wa.me/8618879942285" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print" title="Abrir no WhatsApp"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Fornecedor Som" data-number="+8613686827206">
+              <span class="font-medium text-slate-800 pr-2">#147 Aparelhos Som</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8613686827206')" class="font-mono-num font-bold text-blue-700 bg-blue-50 group-hover:bg-blue-100 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer" title="Clique para copiar">+86 136 8682 7206</button>
+                <a href="https://wa.me/8613686827206" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print" title="Abrir no WhatsApp"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Tablets Fornecedor" data-number="+8619952973987">
+              <span class="font-medium text-slate-800 pr-2">#148 Tablets</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8619952973987')" class="font-mono-num font-bold text-blue-700 bg-blue-50 group-hover:bg-blue-100 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer" title="Clique para copiar">+86 199 5297 3987</button>
+                <a href="https://wa.me/8619952973987" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print" title="Abrir no WhatsApp"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Reda PC Fornecedores" data-number="+8615112566056">
+              <span class="font-medium text-slate-800 pr-2">#173 Reda Fornecedor PC</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8615112566056')" class="font-mono-num font-bold text-blue-700 bg-blue-50 group-hover:bg-blue-100 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer" title="Clique para copiar">+86 151 1256 6056</button>
+                <a href="https://wa.me/8615112566056" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print" title="Abrir no WhatsApp"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Rita Mobile Phone" data-number="+8613640769334">
+              <span class="font-medium text-slate-800 pr-2">#174 Rita Mobile Phone</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8613640769334')" class="font-mono-num font-bold text-blue-700 bg-blue-50 group-hover:bg-blue-100 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer" title="Clique para copiar">+86 136 4076 9334</button>
+                <a href="https://wa.me/8613640769334" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print" title="Abrir no WhatsApp"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Sandra Zhang Video Game" data-number="+8617673652383">
+              <span class="font-medium text-slate-800 pr-2">#177 Sandra Vídeo Game</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8617673652383')" class="font-mono-num font-bold text-blue-700 bg-blue-50 group-hover:bg-blue-100 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer" title="Clique para copiar">+86 176 7365 2383</button>
+                <a href="https://wa.me/8617673652383" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print" title="Abrir no WhatsApp"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Jenny iPhone Novo" data-number="+8618819225366">
+              <span class="font-medium text-slate-800 pr-2">#189 Jenny iPhone Novo</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8618819225366')" class="font-mono-num font-bold text-blue-700 bg-blue-50 group-hover:bg-blue-100 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer" title="Clique para copiar">+86 188 1922 5366</button>
+                <a href="https://wa.me/8618819225366" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print" title="Abrir no WhatsApp"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ================= 2. ROUPAS & VESTUÁRIO ================= -->
+      <section class="card-box flex flex-col bg-slate-50 border border-slate-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition" data-category="vestuario">
+        <div class="card-header-pink text-white px-4 py-3 font-bold text-sm tracking-wide flex items-center justify-between">
+          <span class="flex items-center gap-2">
+            <i class="fa-solid fa-shirt"></i> 2. Roupas & Moda
+          </span>
+          <span class="cat-count text-[11px] bg-white/20 px-2 py-0.5 rounded-full font-mono">27</span>
+        </div>
+        <div class="p-3 bg-white flex-1 flex flex-col">
+          <ul class="supplier-list space-y-1.5 custom-scrollbar max-h-[480px] overflow-y-auto pr-1 text-xs">
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="China Clothin Roupas masculinas" data-number="+8613435778595">
+              <span class="font-medium text-slate-800 pr-2">#4 China Clothin Masc.</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8613435778595')" class="font-mono-num font-bold text-pink-700 bg-pink-50 group-hover:bg-pink-100 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer">+86 134 3577 8595</button>
+                <a href="https://wa.me/8613435778595" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Conclusao Jeans Brasil" data-number="+5511933243091">
+              <span class="font-medium text-slate-800 pr-2">#5 Conclusão Jeans (BR)</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+5511933243091')" class="font-mono-num font-bold text-pink-700 bg-pink-50 group-hover:bg-pink-100 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer">+55 11 93324-3091</button>
+                <a href="https://wa.me/5511933243091" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Evellyn Calcas Mamacita Brasil" data-number="+5511953760171">
+              <span class="font-medium text-slate-800 pr-2">#8 Calças Mamacita (BR)</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+5511953760171')" class="font-mono-num font-bold text-pink-700 bg-pink-50 group-hover:bg-pink-100 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer">+55 11 95376-0171</button>
+                <a href="https://wa.me/5511953760171" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Fabrica Calcoes" data-number="+8615920884086">
+              <span class="font-medium text-slate-800 pr-2">#10 Fábrica Calções</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8615920884086')" class="font-mono-num font-bold text-pink-700 bg-pink-50 group-hover:bg-pink-100 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer">+86 159 2088 4086</button>
+                <a href="https://wa.me/8615920884086" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Calcoes Masculinos" data-number="+8617706796989">
+              <span class="font-medium text-slate-800 pr-2">#27 Calções Masc.</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8617706796989')" class="font-mono-num font-bold text-pink-700 bg-pink-50 group-hover:bg-pink-100 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer">+86 177 0679 6989</button>
+                <a href="https://wa.me/8617706796989" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Camisolas E roupa actualidade" data-number="+8613600172448">
+              <span class="font-medium text-slate-800 pr-2">#30 Roupas Atualidade</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8613600172448')" class="font-mono-num font-bold text-pink-700 bg-pink-50 group-hover:bg-pink-100 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer">+86 136 0017 2448</button>
+                <a href="https://wa.me/8613600172448" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Fornecedor Cinta" data-number="+8613739785042">
+              <span class="font-medium text-slate-800 pr-2">#37 Cintas Modeladoras</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8613739785042')" class="font-mono-num font-bold text-pink-700 bg-pink-50 group-hover:bg-pink-100 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer">+86 137 3978 5042</button>
+                <a href="https://wa.me/8613739785042" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Lacos para meninas" data-number="+8618070147973">
+              <span class="font-medium text-slate-800 pr-2">#58 Laços p/ Meninas</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8618070147973')" class="font-mono-num font-bold text-pink-700 bg-pink-50 group-hover:bg-pink-100 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer">+86 180 7014 7973</button>
+                <a href="https://wa.me/8618070147973" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Langery lingerie" data-number="+8613192968748">
+              <span class="font-medium text-slate-800 pr-2">#59 Lingerie Fina</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8613192968748')" class="font-mono-num font-bold text-pink-700 bg-pink-50 group-hover:bg-pink-100 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer">+86 131 9296 8748</button>
+                <a href="https://wa.me/8613192968748" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Roupa Gym academia" data-number="+8613462903265">
+              <span class="font-medium text-slate-800 pr-2">#98 Roupas Fitness / Gym</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8613462903265')" class="font-mono-num font-bold text-pink-700 bg-pink-50 group-hover:bg-pink-100 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer">+86 134 6290 3265</button>
+                <a href="https://wa.me/8613462903265" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Roupa masculina brasil" data-number="+5511999492885">
+              <span class="font-medium text-slate-800 pr-2">#99 Roupa Masc. (BR)</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+5511999492885')" class="font-mono-num font-bold text-pink-700 bg-pink-50 group-hover:bg-pink-100 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer">+55 11 99949-2885</button>
+                <a href="https://wa.me/5511999492885" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Roupas islamicas" data-number="+8618900858982">
+              <span class="font-medium text-slate-800 pr-2">#101 Roupas Islâmicas</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8618900858982')" class="font-mono-num font-bold text-pink-700 bg-pink-50 group-hover:bg-pink-100 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer">+86 189 0085 8982</button>
+                <a href="https://wa.me/8618900858982" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Casacos luminosos" data-number="+8613502859039">
+              <span class="font-medium text-slate-800 pr-2">#102 Casacos Luminosos</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8613502859039')" class="font-mono-num font-bold text-pink-700 bg-pink-50 group-hover:bg-pink-100 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer">+86 135 0285 9039</button>
+                <a href="https://wa.me/8613502859039" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Ternos Fornecedor" data-number="+8613640766623">
+              <span class="font-medium text-slate-800 pr-2">#108 Ternos Executivos</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8613640766623')" class="font-mono-num font-bold text-pink-700 bg-pink-50 group-hover:bg-pink-100 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer">+86 136 4076 6623</button>
+                <a href="https://wa.me/8613640766623" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Ternos Paquistao" data-number="+923091598118">
+              <span class="font-medium text-slate-800 pr-2">#109 Ternos (Paquistão)</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+923091598118')" class="font-mono-num font-bold text-pink-700 bg-pink-50 group-hover:bg-pink-100 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer">+92 309 1598118</button>
+                <a href="https://wa.me/923091598118" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Uniformes" data-number="+8615007168183">
+              <span class="font-medium text-slate-800 pr-2">#110 Uniformes & Fardas</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8615007168183')" class="font-mono-num font-bold text-pink-700 bg-pink-50 group-hover:bg-pink-100 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer">+86 150 0716 8183</button>
+                <a href="https://wa.me/8615007168183" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Vestido de gala" data-number="+8615959982968">
+              <span class="font-medium text-slate-800 pr-2">#111 Vestidos de Gala</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8615959982968')" class="font-mono-num font-bold text-pink-700 bg-pink-50 group-hover:bg-pink-100 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer">+86 159 5998 2968</button>
+                <a href="https://wa.me/8615959982968" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Vestidos Shein" data-number="+8617348803502">
+              <span class="font-medium text-slate-800 pr-2">#112 Vestidos Shein</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8617348803502')" class="font-mono-num font-bold text-pink-700 bg-pink-50 group-hover:bg-pink-100 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer">+86 173 4880 3502</button>
+                <a href="https://wa.me/8617348803502" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Casacos femininos" data-number="+8618771099478">
+              <span class="font-medium text-slate-800 pr-2">#123 Casacos Femininos</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8618771099478')" class="font-mono-num font-bold text-pink-700 bg-pink-50 group-hover:bg-pink-100 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer">+86 187 7109 9478</button>
+                <a href="https://wa.me/8618771099478" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Conjuntos De roupa" data-number="+8615268612965">
+              <span class="font-medium text-slate-800 pr-2">#125 Conjuntos Roupa</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8615268612965')" class="font-mono-num font-bold text-pink-700 bg-pink-50 group-hover:bg-pink-100 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer">+86 152 6861 2965</button>
+                <a href="https://wa.me/8615268612965" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Vestuario feminino geral" data-number="+8615015170565">
+              <span class="font-medium text-slate-800 pr-2">#128 Moda Feminina Geral</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8615015170565')" class="font-mono-num font-bold text-pink-700 bg-pink-50 group-hover:bg-pink-100 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer">+86 150 1517 0565</button>
+                <a href="https://wa.me/8615015170565" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Langery lingerie intima" data-number="+8619927587084">
+              <span class="font-medium text-slate-800 pr-2">#130 Lingerie Atacado</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8619927587084')" class="font-mono-num font-bold text-pink-700 bg-pink-50 group-hover:bg-pink-100 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer">+86 199 2758 7084</button>
+                <a href="https://wa.me/8619927587084" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Fornecedora Roupas" data-number="+861519159332">
+              <span class="font-medium text-slate-800 pr-2">#144 Fornec. Roupas</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+861519159332')" class="font-mono-num font-bold text-pink-700 bg-pink-50 group-hover:bg-pink-100 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer">+86 151 9159 332</button>
+                <a href="https://wa.me/861519159332" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Roupa para casamento noivos" data-number="+8618726488320">
+              <span class="font-medium text-slate-800 pr-2">#145 Roupa Casamento</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8618726488320')" class="font-mono-num font-bold text-pink-700 bg-pink-50 group-hover:bg-pink-100 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer">+86 187 2648 8320</button>
+                <a href="https://wa.me/8618726488320" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Vestido de noiva casamento" data-number="+8615715380239">
+              <span class="font-medium text-slate-800 pr-2">#152 Vestido de Noiva</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8615715380239')" class="font-mono-num font-bold text-pink-700 bg-pink-50 group-hover:bg-pink-100 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer">+86 157 1538 0239</button>
+                <a href="https://wa.me/8615715380239" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Vestido de gala" data-number="+8619128689947">
+              <span class="font-medium text-slate-800 pr-2">#153 Vestidos Festas</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8619128689947')" class="font-mono-num font-bold text-pink-700 bg-pink-50 group-hover:bg-pink-100 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer">+86 191 2868 9947</button>
+                <a href="https://wa.me/8619128689947" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Vestido de noiva" data-number="+8619858994919">
+              <span class="font-medium text-slate-800 pr-2">#154 Vestidos Noiva Luxo</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8619858994919')" class="font-mono-num font-bold text-pink-700 bg-pink-50 group-hover:bg-pink-100 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer">+86 198 5899 4919</button>
+                <a href="https://wa.me/8619858994919" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ================= 3. CABELO & PRÓTESES ================= -->
+      <section class="card-box flex flex-col bg-slate-50 border border-slate-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition" data-category="cabelos">
+        <div class="card-header-purple text-white px-4 py-3 font-bold text-sm tracking-wide flex items-center justify-between">
+          <span class="flex items-center gap-2">
+            <i class="fa-solid fa-wand-magic-sparkles"></i> 3. Cabelo & Próteses
+          </span>
+          <span class="cat-count text-[11px] bg-white/20 px-2 py-0.5 rounded-full font-mono">21</span>
+        </div>
+        <div class="p-3 bg-white flex-1 flex flex-col">
+          <ul class="supplier-list space-y-1.5 custom-scrollbar max-h-[480px] overflow-y-auto pr-1 text-xs">
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Ann Fornecedor Proteses" data-number="+8619137417101">
+              <span class="font-medium text-slate-800 pr-2">#2 Ann Próteses</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8619137417101')" class="font-mono-num font-bold text-purple-700 bg-purple-50 group-hover:bg-purple-100 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer">+86 191 3741 7101</button>
+                <a href="https://wa.me/8619137417101" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Fdx Humano Proteses capilares" data-number="+8617637963006">
+              <span class="font-medium text-slate-800 pr-2">#11 Fdx Humano Próteses</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8617637963006')" class="font-mono-num font-bold text-purple-700 bg-purple-50 group-hover:bg-purple-100 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer">+86 176 3796 3006</button>
+                <a href="https://wa.me/8617637963006" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Alisa ofly Hair perucas" data-number="+8615725252082">
+              <span class="font-medium text-slate-800 pr-2">#22 Alisa Ofly Hair</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8615725252082')" class="font-mono-num font-bold text-purple-700 bg-purple-50 group-hover:bg-purple-100 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer">+86 157 2525 2082</button>
+                <a href="https://wa.me/8615725252082" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Material Salao de beleza cabelo" data-number="+8613724802451">
+              <span class="font-medium text-slate-800 pr-2">#76 Mat. para Salão</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8613724802451')" class="font-mono-num font-bold text-purple-700 bg-purple-50 group-hover:bg-purple-100 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer">+86 137 2480 2451</button>
+                <a href="https://wa.me/8613724802451" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Mechas Naturais" data-number="+86362200530">
+              <span class="font-medium text-slate-800 pr-2">#79 Mechas Naturais</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+86362200530')" class="font-mono-num font-bold text-purple-700 bg-purple-50 group-hover:bg-purple-100 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer">+86 362 200 530</button>
+                <a href="https://wa.me/86362200530" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Mechas croche trancas" data-number="+8616603742525">
+              <span class="font-medium text-slate-800 pr-2">#80 Mechas Crochê</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8616603742525')" class="font-mono-num font-bold text-purple-700 bg-purple-50 group-hover:bg-purple-100 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer">+86 166 0374 2525</button>
+                <a href="https://wa.me/8616603742525" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Proteses capilares" data-number="+8615275259226">
+              <span class="font-medium text-slate-800 pr-2">#93 Próteses Capilares</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8615275259226')" class="font-mono-num font-bold text-purple-700 bg-purple-50 group-hover:bg-purple-100 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer">+86 152 7525 9226</button>
+                <a href="https://wa.me/8615275259226" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Fornecedora Proteses" data-number="+8613361262980">
+              <span class="font-medium text-slate-800 pr-2">#126 Fornec. Próteses</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8613361262980')" class="font-mono-num font-bold text-purple-700 bg-purple-50 group-hover:bg-purple-100 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer">+86 133 6126 2980</button>
+                <a href="https://wa.me/8613361262980" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Proteses fornecedor" data-number="+8615166613705">
+              <span class="font-medium text-slate-800 pr-2">#141 Próteses Naturais</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8615166613705')" class="font-mono-num font-bold text-purple-700 bg-purple-50 group-hover:bg-purple-100 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer">+86 151 6661 3705</button>
+                <a href="https://wa.me/8615166613705" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Fornecedora proteses" data-number="+8618703614126">
+              <span class="font-medium text-slate-800 pr-2">#142 Próteses Premium</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8618703614126')" class="font-mono-num font-bold text-purple-700 bg-purple-50 group-hover:bg-purple-100 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer">+86 187 0361 4126</button>
+                <a href="https://wa.me/8618703614126" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Frida Protese sintetica" data-number="+8618749586539">
+              <span class="font-medium text-slate-800 pr-2">#159 Frida Próteses Sint.</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8618749586539')" class="font-mono-num font-bold text-purple-700 bg-purple-50 group-hover:bg-purple-100 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer">+86 187 4958 6539</button>
+                <a href="https://wa.me/8618749586539" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Lyric Proteses" data-number="+8618567313161">
+              <span class="font-medium text-slate-800 pr-2">#165 Lyric Próteses</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8618567313161')" class="font-mono-num font-bold text-purple-700 bg-purple-50 group-hover:bg-purple-100 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer">+86 185 6731 3161</button>
+                <a href="https://wa.me/8618567313161" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Mechas Diversas" data-number="+8617338324391">
+              <span class="font-medium text-slate-800 pr-2">#166 Mechas Diversas</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8617338324391')" class="font-mono-num font-bold text-purple-700 bg-purple-50 group-hover:bg-purple-100 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer">+86 173 3832 4391</button>
+                <a href="https://wa.me/8617338324391" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Mechas Finas" data-number="+8615393773121">
+              <span class="font-medium text-slate-800 pr-2">#167 Mechas Finas</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8615393773121')" class="font-mono-num font-bold text-purple-700 bg-purple-50 group-hover:bg-purple-100 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer">+86 153 9377 3121</button>
+                <a href="https://wa.me/8615393773121" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Mushang Hair proteses" data-number="+8618039919688">
+              <span class="font-medium text-slate-800 pr-2">#169 Mushang Hair</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8618039919688')" class="font-mono-num font-bold text-purple-700 bg-purple-50 group-hover:bg-purple-100 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer">+86 180 3991 9688</button>
+                <a href="https://wa.me/8618039919688" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Proteses cabelos" data-number="+8619713093803">
+              <span class="font-medium text-slate-800 pr-2">#171 Próteses & Laces</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8619713093803')" class="font-mono-num font-bold text-purple-700 bg-purple-50 group-hover:bg-purple-100 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer">+86 197 1309 3803</button>
+                <a href="https://wa.me/8619713093803" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Proteses Vicky" data-number="+8619003745207">
+              <span class="font-medium text-slate-800 pr-2">#172 Próteses Vicky</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8619003745207')" class="font-mono-num font-bold text-purple-700 bg-purple-50 group-hover:bg-purple-100 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer">+86 190 0374 5207</button>
+                <a href="https://wa.me/8619003745207" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Rowan Eli Hair proteses" data-number="+8617339035362">
+              <span class="font-medium text-slate-800 pr-2">#176 Rowan Eli Hair</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8617339035362')" class="font-mono-num font-bold text-purple-700 bg-purple-50 group-hover:bg-purple-100 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer">+86 173 3903 5362</button>
+                <a href="https://wa.me/8617339035362" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Xuchang jimei trade Dreds" data-number="+8617181542972">
+              <span class="font-medium text-slate-800 pr-2">#182 Xuchang Dreds</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8617181542972')" class="font-mono-num font-bold text-purple-700 bg-purple-50 group-hover:bg-purple-100 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer">+86 171 8154 2972</button>
+                <a href="https://wa.me/8617181542972" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Eva proteses capilar" data-number="+8613686109420">
+              <span class="font-medium text-slate-800 pr-2">#187 Eva Próteses</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8613686109420')" class="font-mono-num font-bold text-purple-700 bg-purple-50 group-hover:bg-purple-100 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer">+86 136 8610 9420</button>
+                <a href="https://wa.me/8613686109420" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Julie Hair proteses" data-number="+861382232496">
+              <span class="font-medium text-slate-800 pr-2">#190 Julie Hair Próteses</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+861382232496')" class="font-mono-num font-bold text-purple-700 bg-purple-50 group-hover:bg-purple-100 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer">+86 138 223 2496</button>
+                <a href="https://wa.me/861382232496" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ================= 4. BELEZA, JÓIAS & ÓCULOS ================= -->
+      <section class="card-box flex flex-col bg-slate-50 border border-slate-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition" data-category="beleza">
+        <div class="card-header-amber text-white px-4 py-3 font-bold text-sm tracking-wide flex items-center justify-between">
+          <span class="flex items-center gap-2">
+            <i class="fa-solid fa-gem"></i> 4. Jóias & Óculos
+          </span>
+          <span class="cat-count text-[11px] bg-white/20 px-2 py-0.5 rounded-full font-mono">17</span>
+        </div>
+        <div class="p-3 bg-white flex-1 flex flex-col">
+          <ul class="supplier-list space-y-1.5 custom-scrollbar max-h-[480px] overflow-y-auto pr-1 text-xs">
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Body Brasil cosmeticos" data-number="+5511940286987">
+              <span class="font-medium text-slate-800 pr-2">#3 Body Brasil</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+5511940286987')" class="font-mono-num font-bold text-amber-700 bg-amber-50 group-hover:bg-amber-100 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer">+55 11 94028-6987</button>
+                <a href="https://wa.me/5511940286987" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Fornecedor Bijuteira joias" data-number="+8613925054827">
+              <span class="font-medium text-slate-800 pr-2">#13 Fornec. Bijuteria</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8613925054827')" class="font-mono-num font-bold text-amber-700 bg-amber-50 group-hover:bg-amber-100 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer">+86 139 2505 4827</button>
+                <a href="https://wa.me/8613925054827" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Fornecedor Bijuterias" data-number="+8617607973253">
+              <span class="font-medium text-slate-800 pr-2">#14 Fornec. Bijuterias</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8617607973253')" class="font-mono-num font-bold text-amber-700 bg-amber-50 group-hover:bg-amber-100 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer">+86 176 0797 3253</button>
+                <a href="https://wa.me/8617607973253" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Bijuterias atacado" data-number="+8613575940195">
+              <span class="font-medium text-slate-800 pr-2">#18 Bijuterias Fashion</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8613575940195')" class="font-mono-num font-bold text-amber-700 bg-amber-50 group-hover:bg-amber-100 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer">+86 135 7594 0195</button>
+                <a href="https://wa.me/8613575940195" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Cosmeticos maquiagem beleza" data-number="+8613642792396">
+              <span class="font-medium text-slate-800 pr-2">#42 Cosméticos Geral</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8613642792396')" class="font-mono-num font-bold text-amber-700 bg-amber-50 group-hover:bg-amber-100 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer">+86 136 4279 2396</button>
+                <a href="https://wa.me/8613642792396" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Oculos sol de grau" data-number="+8618868002189">
+              <span class="font-medium text-slate-800 pr-2">#85 Óculos de Sol & Armação</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8618868002189')" class="font-mono-num font-bold text-amber-700 bg-amber-50 group-hover:bg-amber-100 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer">+86 188 6800 2189</button>
+                <a href="https://wa.me/8618868002189" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Relogio inteligente pulso" data-number="+8618926594260">
+              <span class="font-medium text-slate-800 pr-2">#95 Relógios de Pulso</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8618926594260')" class="font-mono-num font-bold text-amber-700 bg-amber-50 group-hover:bg-amber-100 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer">+86 189 2659 4260</button>
+                <a href="https://wa.me/8618926594260" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Relogio Masculino esporte luxo" data-number="+8618877319398">
+              <span class="font-medium text-slate-800 pr-2">#96 Relógios Masculinos</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8618877319398')" class="font-mono-num font-bold text-amber-700 bg-amber-50 group-hover:bg-amber-100 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer">+86 188 7731 9398</button>
+                <a href="https://wa.me/8618877319398" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Material para Unhas gel manicure" data-number="+8618864658302">
+              <span class="font-medium text-slate-800 pr-2">#135 Material p/ Unhas</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8618864658302')" class="font-mono-num font-bold text-amber-700 bg-amber-50 group-hover:bg-amber-100 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer">+86 188 6465 8302</button>
+                <a href="https://wa.me/8618864658302" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Fornecedora Unhas esmalte" data-number="+8617764067835">
+              <span class="font-medium text-slate-800 pr-2">#138 Fornec. Unhas Gel</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8617764067835')" class="font-mono-num font-bold text-amber-700 bg-amber-50 group-hover:bg-amber-100 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer">+86 177 6406 7835</button>
+                <a href="https://wa.me/8617764067835" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Fornecedora Oculos" data-number="+8615705899150">
+              <span class="font-medium text-slate-800 pr-2">#139 Óculos Design</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8615705899150')" class="font-mono-num font-bold text-amber-700 bg-amber-50 group-hover:bg-amber-100 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer">+86 157 0589 9150</button>
+                <a href="https://wa.me/8615705899150" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Katherine Ho Cosmeticos" data-number="+8613435623520">
+              <span class="font-medium text-slate-800 pr-2">#160 Katherine Cosméticos</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8613435623520')" class="font-mono-num font-bold text-amber-700 bg-amber-50 group-hover:bg-amber-100 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer">+86 134 3562 3520</button>
+                <a href="https://wa.me/8613435623520" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Xuping Bianca bijuterias banhadas ouro" data-number="+8613925054496">
+              <span class="font-medium text-slate-800 pr-2">#183 Xuping Bianca Jóias</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8613925054496')" class="font-mono-num font-bold text-amber-700 bg-amber-50 group-hover:bg-amber-100 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer">+86 139 2505 4496</button>
+                <a href="https://wa.me/8613925054496" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Bijuterias atacado joias" data-number="+8617607973253">
+              <span class="font-medium text-slate-800 pr-2">#194 Bijuterias Variadas</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8617607973253')" class="font-mono-num font-bold text-amber-700 bg-amber-50 group-hover:bg-amber-100 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer">+86 176 0797 3253</button>
+                <a href="https://wa.me/8617607973253" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Bijuterias colares brincos" data-number="+8613575940195">
+              <span class="font-medium text-slate-800 pr-2">#196 Semi-jóias & Colares</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8613575940195')" class="font-mono-num font-bold text-amber-700 bg-amber-50 group-hover:bg-amber-100 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer">+86 135 7594 0195</button>
+                <a href="https://wa.me/8613575940195" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Relogios smartwatch" data-number="+8618922875892">
+              <span class="font-medium text-slate-800 pr-2">#201 Relógios & Smart</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8618922875892')" class="font-mono-num font-bold text-amber-700 bg-amber-50 group-hover:bg-amber-100 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer">+86 189 2287 5892</button>
+                <a href="https://wa.me/8618922875892" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Relogios diversos" data-number="+8618926594260">
+              <span class="font-medium text-slate-800 pr-2">#202 Relógios Cronógrafos</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8618926594260')" class="font-mono-num font-bold text-amber-700 bg-amber-50 group-hover:bg-amber-100 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer">+86 189 2659 4260</button>
+                <a href="https://wa.me/8618926594260" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ================= 5. CALÇADOS & BOLSAS ================= -->
+      <section class="card-box flex flex-col bg-slate-50 border border-slate-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition" data-category="calcados">
+        <div class="card-header-emerald text-white px-4 py-3 font-bold text-sm tracking-wide flex items-center justify-between">
+          <span class="flex items-center gap-2">
+            <i class="fa-solid fa-shoe-prints"></i> 5. Calçados & Bolsas
+          </span>
+          <span class="cat-count text-[11px] bg-white/20 px-2 py-0.5 rounded-full font-mono">13</span>
+        </div>
+        <div class="p-3 bg-white flex-1 flex flex-col">
+          <ul class="supplier-list space-y-1.5 custom-scrollbar max-h-[480px] overflow-y-auto pr-1 text-xs">
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Every Calcas e Calcados Brasil" data-number="+5511986849053">
+              <span class="font-medium text-slate-800 pr-2">#9 Calçados Brasil</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+5511986849053')" class="font-mono-num font-bold text-emerald-700 bg-emerald-50 group-hover:bg-emerald-100 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer">+55 11 98684-9053</button>
+                <a href="https://wa.me/5511986849053" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Fornecedor Bolsas couro" data-number="+8618555616651">
+              <span class="font-medium text-slate-800 pr-2">#19 Bolsas Femininas</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8618555616651')" class="font-mono-num font-bold text-emerald-700 bg-emerald-50 group-hover:bg-emerald-100 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer">+86 185 5561 6651</button>
+                <a href="https://wa.me/8618555616651" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Fornecedor Bolsinhas clutches" data-number="+8613777832906">
+              <span class="font-medium text-slate-800 pr-2">#20 Bolsinhas & Clutches</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8613777832906')" class="font-mono-num font-bold text-emerald-700 bg-emerald-50 group-hover:bg-emerald-100 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer">+86 137 7783 2906</button>
+                <a href="https://wa.me/8613777832906" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Calcados Qingsen sapatos" data-number="+8615202090029">
+              <span class="font-medium text-slate-800 pr-2">#26 Calçados Qingsen</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8615202090029')" class="font-mono-num font-bold text-emerald-700 bg-emerald-50 group-hover:bg-emerald-100 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer">+86 152 0209 0029</button>
+                <a href="https://wa.me/8615202090029" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Carteiras Femininas couro" data-number="+8615195208212">
+              <span class="font-medium text-slate-800 pr-2">#33 Carteiras Femininas</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8615195208212')" class="font-mono-num font-bold text-emerald-700 bg-emerald-50 group-hover:bg-emerald-100 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer">+86 151 9520 8212</button>
+                <a href="https://wa.me/8615195208212" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Chinelo e Sandalias praia" data-number="+8618278760580">
+              <span class="font-medium text-slate-800 pr-2">#34 Chinelos & Sandálias</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8618278760580')" class="font-mono-num font-bold text-emerald-700 bg-emerald-50 group-hover:bg-emerald-100 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer">+86 182 7876 0580</button>
+                <a href="https://wa.me/8618278760580" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Chinelos Plasticos eva" data-number="+8615159522555">
+              <span class="font-medium text-slate-800 pr-2">#35 Chinelos Plásticos</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8615159522555')" class="font-mono-num font-bold text-emerald-700 bg-emerald-50 group-hover:bg-emerald-100 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer">+86 151 5952 2555</button>
+                <a href="https://wa.me/8615159522555" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Sapatos calcados" data-number="+8619309629831">
+              <span class="font-medium text-slate-800 pr-2">#103 Sapatos Atacado</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8619309629831')" class="font-mono-num font-bold text-emerald-700 bg-emerald-50 group-hover:bg-emerald-100 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer">+86 193 0962 9831</button>
+                <a href="https://wa.me/8619309629831" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Fornecedora Bolsas" data-number="+8615873119246">
+              <span class="font-medium text-slate-800 pr-2">#120 Bolsas Elegance</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8615873119246')" class="font-mono-num font-bold text-emerald-700 bg-emerald-50 group-hover:bg-emerald-100 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer">+86 158 7311 9246</button>
+                <a href="https://wa.me/8615873119246" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Botas femininas couro" data-number="+8918968748762">
+              <span class="font-medium text-slate-800 pr-2">#121 Botas de Inverno</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8918968748762')" class="font-mono-num font-bold text-emerald-700 bg-emerald-50 group-hover:bg-emerald-100 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer">+89 189 6874 8762</button>
+                <a href="https://wa.me/8918968748762" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Bolsas de marca replicas" data-number="+8615057943336">
+              <span class="font-medium text-slate-800 pr-2">#156 Bolsas de Marca</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8615057943336')" class="font-mono-num font-bold text-emerald-700 bg-emerald-50 group-hover:bg-emerald-100 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer">+86 150 5794 3336</button>
+                <a href="https://wa.me/8615057943336" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Sapato Infantil calcado" data-number="+8617757576566">
+              <span class="font-medium text-slate-800 pr-2">#178 Sapato Infantil</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8617757576566')" class="font-mono-num font-bold text-emerald-700 bg-emerald-50 group-hover:bg-emerald-100 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer">+86 177 5757 6566</button>
+                <a href="https://wa.me/8617757576566" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Daisy Sapatos de marca" data-number="+8618925226418">
+              <span class="font-medium text-slate-800 pr-2">#186 Daisy Sapatos Marca</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8618925226418')" class="font-mono-num font-bold text-emerald-700 bg-emerald-50 group-hover:bg-emerald-100 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer">+86 189 2522 6418</button>
+                <a href="https://wa.me/8618925226418" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ================= 6. CASA, COZINHA & MÓVEIS ================= -->
+      <section class="card-box flex flex-col bg-slate-50 border border-slate-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition" data-category="casa">
+        <div class="card-header-cyan text-white px-4 py-3 font-bold text-sm tracking-wide flex items-center justify-between">
+          <span class="flex items-center gap-2">
+            <i class="fa-solid fa-house-chimney"></i> 6. Casa & Decoração
+          </span>
+          <span class="cat-count text-[11px] bg-white/20 px-2 py-0.5 rounded-full font-mono">22</span>
+        </div>
+        <div class="p-3 bg-white flex-1 flex flex-col">
+          <ul class="supplier-list space-y-1.5 custom-scrollbar max-h-[480px] overflow-y-auto pr-1 text-xs">
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Acessorios de cozinha panelas" data-number="+8615989737642">
+              <span class="font-medium text-slate-800 pr-2">#16 Acessórios Cozinha</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8615989737642')" class="font-mono-num font-bold text-cyan-700 bg-cyan-50 group-hover:bg-cyan-100 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer">+86 159 8973 7642</button>
+                <a href="https://wa.me/8615989737642" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Candeeiros luminarias luz" data-number="+8615377838182">
+              <span class="font-medium text-slate-800 pr-2">#31 Candeeiros & Lustres</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8615377838182')" class="font-mono-num font-bold text-cyan-700 bg-cyan-50 group-hover:bg-cyan-100 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer">+86 153 7783 8182</button>
+                <a href="https://wa.me/8615377838182" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Chuveiro banheiro duchas" data-number="+8615622908494">
+              <span class="font-medium text-slate-800 pr-2">#36 Chuveiros & Duchas</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8615622908494')" class="font-mono-num font-bold text-cyan-700 bg-cyan-50 group-hover:bg-cyan-100 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer">+86 156 2290 8494</button>
+                <a href="https://wa.me/8615622908494" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Armarios moveis cozinha" data-number="+8613172624068">
+              <span class="font-medium text-slate-800 pr-2">#43 Armários & Roupeiros</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8613172624068')" class="font-mono-num font-bold text-cyan-700 bg-cyan-50 group-hover:bg-cyan-100 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer">+86 131 7262 4068</button>
+                <a href="https://wa.me/8613172624068" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Fogao digital inducao" data-number="+8615989170332">
+              <span class="font-medium text-slate-800 pr-2">#56 Fogão Digital</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8615989170332')" class="font-mono-num font-bold text-cyan-700 bg-cyan-50 group-hover:bg-cyan-100 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer">+86 159 8917 0332</button>
+                <a href="https://wa.me/8615989170332" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Dandy material cozinha" data-number="+8613790724237">
+              <span class="font-medium text-slate-800 pr-2">#71 Dandy Utensílios Cozinha</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8613790724237')" class="font-mono-num font-bold text-cyan-700 bg-cyan-50 group-hover:bg-cyan-100 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer">+86 137 9072 4237</button>
+                <a href="https://wa.me/8613790724237" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Material de decoracao sala casa" data-number="+8613450400532">
+              <span class="font-medium text-slate-800 pr-2">#72 Artigos Decoração</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8613450400532')" class="font-mono-num font-bold text-cyan-700 bg-cyan-50 group-hover:bg-cyan-100 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer">+86 134 5040 0532</button>
+                <a href="https://wa.me/8613450400532" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Geleira refrigeracao freezer" data-number="+8613736241384">
+              <span class="font-medium text-slate-800 pr-2">#74 Mat. de Geleiras/Refrig.</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8613736241384')" class="font-mono-num font-bold text-cyan-700 bg-cyan-50 group-hover:bg-cyan-100 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer">+86 137 3624 1384</button>
+                <a href="https://wa.me/8613736241384" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Material Restaurante cozinha buffet" data-number="+8618144861386">
+              <span class="font-medium text-slate-800 pr-2">#75 Mat. Restaurantes</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8618144861386')" class="font-mono-num font-bold text-cyan-700 bg-cyan-50 group-hover:bg-cyan-100 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer">+86 181 4486 1386</button>
+                <a href="https://wa.me/8618144861386" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Mesas para balcao bar" data-number="+8615920113106">
+              <span class="font-medium text-slate-800 pr-2">#81 Mesas p/ Balcão</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8615920113106')" class="font-mono-num font-bold text-cyan-700 bg-cyan-50 group-hover:bg-cyan-100 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer">+86 159 2011 3106</button>
+                <a href="https://wa.me/8615920113106" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Moveis estantes cadeiras" data-number="+8613925469587">
+              <span class="font-medium text-slate-800 pr-2">#84 Móveis Residenciais</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8613925469587')" class="font-mono-num font-bold text-cyan-700 bg-cyan-50 group-hover:bg-cyan-100 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer">+86 139 2546 9587</button>
+                <a href="https://wa.me/8613925469587" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Panelas de pressao cozinha" data-number="+8613757974585">
+              <span class="font-medium text-slate-800 pr-2">#86 Panelas Antiaderentes</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8613757974585')" class="font-mono-num font-bold text-cyan-700 bg-cyan-50 group-hover:bg-cyan-100 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer">+86 137 5797 4585</button>
+                <a href="https://wa.me/8613757974585" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Panelas aluminio" data-number="+8613829086956">
+              <span class="font-medium text-slate-800 pr-2">#87 Panelas Alumínio</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8613829086956')" class="font-mono-num font-bold text-cyan-700 bg-cyan-50 group-hover:bg-cyan-100 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer">+86 138 2908 6956</button>
+                <a href="https://wa.me/8613829086956" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Panelas Conjunto" data-number="+8613662692622">
+              <span class="font-medium text-slate-800 pr-2">#88 Jogos de Panelas</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8613662692622')" class="font-mono-num font-bold text-cyan-700 bg-cyan-50 group-hover:bg-cyan-100 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer">+86 136 6269 2622</button>
+                <a href="https://wa.me/8613662692622" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Talheres inox garfos facas" data-number="+8615195899727">
+              <span class="font-medium text-slate-800 pr-2">#105 Talheres & Faqueiros</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8615195899727')" class="font-mono-num font-bold text-cyan-700 bg-cyan-50 group-hover:bg-cyan-100 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer">+86 151 9589 9727</button>
+                <a href="https://wa.me/8615195899727" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Tapetes quarto sala" data-number="+8617622711352">
+              <span class="font-medium text-slate-800 pr-2">#106 Tapetes & Carpetes</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8617622711352')" class="font-mono-num font-bold text-cyan-700 bg-cyan-50 group-hover:bg-cyan-100 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer">+86 176 2271 1352</button>
+                <a href="https://wa.me/8617622711352" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Tapetes decorativos" data-number="+8613566749709">
+              <span class="font-medium text-slate-800 pr-2">#107 Tapetes Luxo</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8613566749709')" class="font-mono-num font-bold text-cyan-700 bg-cyan-50 group-hover:bg-cyan-100 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer">+86 135 6674 9709</button>
+                <a href="https://wa.me/8613566749709" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Fornecedora Tapetes Reino Unido" data-number="+447599699891">
+              <span class="font-medium text-slate-800 pr-2">#116 Tapetes (Reino Unido)</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+447599699891')" class="font-mono-num font-bold text-cyan-700 bg-cyan-50 group-hover:bg-cyan-100 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer">+44 7599 699891</button>
+                <a href="https://wa.me/447599699891" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Batedeiras liquidificador cozinha" data-number="+8618537716121">
+              <span class="font-medium text-slate-800 pr-2">#119 Batedeiras & Mixers</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8618537716121')" class="font-mono-num font-bold text-cyan-700 bg-cyan-50 group-hover:bg-cyan-100 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer">+86 185 3771 6121</button>
+                <a href="https://wa.me/8618537716121" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Espelhos decorativos led" data-number="+8613536604828">
+              <span class="font-medium text-slate-800 pr-2">#127 Espelhos & Molduras</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8613536604828')" class="font-mono-num font-bold text-cyan-700 bg-cyan-50 group-hover:bg-cyan-100 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer">+86 135 3660 4828</button>
+                <a href="https://wa.me/8613536604828" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Quadros para sala arte" data-number="+8613590621035">
+              <span class="font-medium text-slate-800 pr-2">#143 Quadros Decorativos</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8613590621035')" class="font-mono-num font-bold text-cyan-700 bg-cyan-50 group-hover:bg-cyan-100 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer">+86 135 9062 1035</button>
+                <a href="https://wa.me/8613590621035" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Sofa estofados poltrona" data-number="+8613046895217">
+              <span class="font-medium text-slate-800 pr-2">#146 Sofás & Estofados</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8613046895217')" class="font-mono-num font-bold text-cyan-700 bg-cyan-50 group-hover:bg-cyan-100 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer">+86 130 4689 5217</button>
+                <a href="https://wa.me/8613046895217" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ================= 7. MÁQUINAS, PEÇAS & CONSTRUÇÃO ================= -->
+      <section class="card-box flex flex-col bg-slate-50 border border-slate-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition" data-category="maquinas">
+        <div class="card-header-slate text-white px-4 py-3 font-bold text-sm tracking-wide flex items-center justify-between">
+          <span class="flex items-center gap-2">
+            <i class="fa-solid fa-gears"></i> 7. Máquinas & Obras
+          </span>
+          <span class="cat-count text-[11px] bg-white/20 px-2 py-0.5 rounded-full font-mono">20</span>
+        </div>
+        <div class="p-3 bg-white flex-1 flex flex-col">
+          <ul class="supplier-list space-y-1.5 custom-scrollbar max-h-[480px] overflow-y-auto pr-1 text-xs">
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Ema Lu Go Maquina de picole sorvete" data-number="+8618539991982">
+              <span class="font-medium text-slate-800 pr-2">#7 Máquina de Picolé</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8618539991982')" class="font-mono-num font-bold text-slate-800 bg-slate-100 group-hover:bg-slate-200 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer">+86 185 3999 1982</button>
+                <a href="https://wa.me/8618539991982" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Acessorios para Maquinas industriais" data-number="+8613316872284">
+              <span class="font-medium text-slate-800 pr-2">#17 Peças p/ Máquinas</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8613316872284')" class="font-mono-num font-bold text-slate-800 bg-slate-100 group-hover:bg-slate-200 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer">+86 133 1687 2284</button>
+                <a href="https://wa.me/8613316872284" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Botas de construcao civil epi" data-number="+8615732792512">
+              <span class="font-medium text-slate-800 pr-2">#21 Botas de Construção</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8615732792512')" class="font-mono-num font-bold text-slate-800 bg-slate-100 group-hover:bg-slate-200 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer">+86 157 3279 2512</button>
+                <a href="https://wa.me/8615732792512" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Luzes para Shows eventos palco" data-number="+8613925366035">
+              <span class="font-medium text-slate-800 pr-2">#45 Luzes p/ Palcos & Shows</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8613925366035')" class="font-mono-num font-bold text-slate-800 bg-slate-100 group-hover:bg-slate-200 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer">+86 139 2536 6035</button>
+                <a href="https://wa.me/8613925366035" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Maquina para estampagem prensa" data-number="+8615797797401">
+              <span class="font-medium text-slate-800 pr-2">#46 Prensa Estampagem</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8615797797401')" class="font-mono-num font-bold text-slate-800 bg-slate-100 group-hover:bg-slate-200 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer">+86 157 9779 7401</button>
+                <a href="https://wa.me/8615797797401" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Fornecedor de tractor turquia maquinas" data-number="+905356304589">
+              <span class="font-medium text-slate-800 pr-2">#49 Tratores (Turquia)</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+905356304589')" class="font-mono-num font-bold text-slate-800 bg-slate-100 group-hover:bg-slate-200 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer">+90 535 630 4589</button>
+                <a href="https://wa.me/905356304589" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Maquina de Algodao doce textil" data-number="+8618678835137">
+              <span class="font-medium text-slate-800 pr-2">#61 Máq. de Algodão</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8618678835137')" class="font-mono-num font-bold text-slate-800 bg-slate-100 group-hover:bg-slate-200 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer">+86 186 7883 5137</button>
+                <a href="https://wa.me/8618678835137" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Maquina de Cimento betoneira" data-number="+8615238691808">
+              <span class="font-medium text-slate-800 pr-2">#62 Misturador Cimento</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8615238691808')" class="font-mono-num font-bold text-slate-800 bg-slate-100 group-hover:bg-slate-200 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer">+86 152 3869 1808</button>
+                <a href="https://wa.me/8615238691808" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Maquina de estampagem camisas" data-number="+8613735601422">
+              <span class="font-medium text-slate-800 pr-2">#63 Estampagem Têxtil</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8613735601422')" class="font-mono-num font-bold text-slate-800 bg-slate-100 group-hover:bg-slate-200 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer">+86 137 3560 1422</button>
+                <a href="https://wa.me/8613735601422" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="maquina de estampagem serigrafia" data-number="+8618006799906">
+              <span class="font-medium text-slate-800 pr-2">#64 Prensa Térmica</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8618006799906')" class="font-mono-num font-bold text-slate-800 bg-slate-100 group-hover:bg-slate-200 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer">+86 180 0679 9906</button>
+                <a href="https://wa.me/8618006799906" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Maquina de estampagem industrial" data-number="+8613799407251">
+              <span class="font-medium text-slate-800 pr-2">#65 Estampagem Sublimação</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8613799407251')" class="font-mono-num font-bold text-slate-800 bg-slate-100 group-hover:bg-slate-200 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer">+86 137 9940 7251</button>
+                <a href="https://wa.me/8613799407251" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="maquina Moageira moinho" data-number="+8613860404615">
+              <span class="font-medium text-slate-800 pr-2">#69 Moageiras Industriais</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8613860404615')" class="font-mono-num font-bold text-slate-800 bg-slate-100 group-hover:bg-slate-200 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer">+86 138 6040 4615</button>
+                <a href="https://wa.me/8613860404615" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Material Eletricidade cabos instalacao" data-number="+8615100115168">
+              <span class="font-medium text-slate-800 pr-2">#77 Material Elétrico</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8615100115168')" class="font-mono-num font-bold text-slate-800 bg-slate-100 group-hover:bg-slate-200 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer">+86 151 0011 5168</button>
+                <a href="https://wa.me/8615100115168" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Material Grafico plotter impressao" data-number="+8618066239908">
+              <span class="font-medium text-slate-800 pr-2">#78 Equipamento Gráfico</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8618066239908')" class="font-mono-num font-bold text-slate-800 bg-slate-100 group-hover:bg-slate-200 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer">+86 180 6623 9908</button>
+                <a href="https://wa.me/8618066239908" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Motas motocicletas Dubai emirados" data-number="+971559734305">
+              <span class="font-medium text-slate-800 pr-2">#82 Motocicletas (Dubai/EAU)</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+971559734305')" class="font-mono-num font-bold text-slate-800 bg-slate-100 group-hover:bg-slate-200 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer">+971 55 973 4305</button>
+                <a href="https://wa.me/971559734305" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Motas scooters" data-number="+8619850169952">
+              <span class="font-medium text-slate-800 pr-2">#83 Motos & Scooters</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8619850169952')" class="font-mono-num font-bold text-slate-800 bg-slate-100 group-hover:bg-slate-200 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer">+86 198 5016 9952</button>
+                <a href="https://wa.me/8619850169952" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Pecas de mota e carro autopecas" data-number="+8617758114913">
+              <span class="font-medium text-slate-800 pr-2">#89 Peças Carro/Mota</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8617758114913')" class="font-mono-num font-bold text-slate-800 bg-slate-100 group-hover:bg-slate-200 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer">+86 177 5811 4913</button>
+                <a href="https://wa.me/8617758114913" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Pneus borrachas veiculos" data-number="+8615006698635">
+              <span class="font-medium text-slate-800 pr-2">#92 Pneus Linha Pesada</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8615006698635')" class="font-mono-num font-bold text-slate-800 bg-slate-100 group-hover:bg-slate-200 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer">+86 150 0669 8635</button>
+                <a href="https://wa.me/8615006698635" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Maquina de Sorvete gelado" data-number="+8619339589513">
+              <span class="font-medium text-slate-800 pr-2">#132 Máquina de Sorvete</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8619339589513')" class="font-mono-num font-bold text-slate-800 bg-slate-100 group-hover:bg-slate-200 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer">+86 193 3958 9513</button>
+                <a href="https://wa.me/8619339589513" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Material de construcao predial" data-number="+8619954278389">
+              <span class="font-medium text-slate-800 pr-2">#192 Mat. de Construção</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8619954278389')" class="font-mono-num font-bold text-slate-800 bg-slate-100 group-hover:bg-slate-200 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer">+86 199 5427 8389</button>
+                <a href="https://wa.me/8619954278389" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ================= 8. ESCOLAR, INFANTIL & DIVERSOS ================= -->
+      <section class="card-box flex flex-col bg-slate-50 border border-slate-200 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition" data-category="infantil">
+        <div class="card-header-indigo text-white px-4 py-3 font-bold text-sm tracking-wide flex items-center justify-between">
+          <span class="flex items-center gap-2">
+            <i class="fa-solid fa-shapes"></i> 8. Escolar & Diversos
+          </span>
+          <span class="cat-count text-[11px] bg-white/20 px-2 py-0.5 rounded-full font-mono">18</span>
+        </div>
+        <div class="p-3 bg-white flex-1 flex flex-col">
+          <ul class="supplier-list space-y-1.5 custom-scrollbar max-h-[480px] overflow-y-auto pr-1 text-xs">
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="material de escritorio papel A4" data-number="+8613532734196">
+              <span class="font-medium text-slate-800 pr-2">#12 Papel A4 / Escritório</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8613532734196')" class="font-mono-num font-bold text-indigo-700 bg-indigo-50 group-hover:bg-indigo-100 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer">+86 135 3273 4196</button>
+                <a href="https://wa.me/8613532734196" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Cadeiras Escolares colegial" data-number="+8613924802689">
+              <span class="font-medium text-slate-800 pr-2">#23 Cadeiras Escolares</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8613924802689')" class="font-mono-num font-bold text-indigo-700 bg-indigo-50 group-hover:bg-indigo-100 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer">+86 139 2480 2689</button>
+                <a href="https://wa.me/8613924802689" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Cadeiras Infantis creche" data-number="+8617366695275">
+              <span class="font-medium text-slate-800 pr-2">#24 Cadeiras Infantis</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8617366695275')" class="font-mono-num font-bold text-indigo-700 bg-indigo-50 group-hover:bg-indigo-100 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer">+86 173 6669 5275</button>
+                <a href="https://wa.me/8617366695275" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Cadernos Qian papelaria" data-number="+8613268663816">
+              <span class="font-medium text-slate-800 pr-2">#25 Cadernos Qian</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8613268663816')" class="font-mono-num font-bold text-indigo-700 bg-indigo-50 group-hover:bg-indigo-100 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer">+86 132 6866 3816</button>
+                <a href="https://wa.me/8613268663816" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Camas de Escolinha berçario" data-number="+8618105576870">
+              <span class="font-medium text-slate-800 pr-2">#28 Camas de Escolinha</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8618105576870')" class="font-mono-num font-bold text-indigo-700 bg-indigo-50 group-hover:bg-indigo-100 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer">+86 181 0557 6870</button>
+                <a href="https://wa.me/8618105576870" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Camas Infantis beliche" data-number="+8618058386292">
+              <span class="font-medium text-slate-800 pr-2">#29 Camas Infantis</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8618058386292')" class="font-mono-num font-bold text-indigo-700 bg-indigo-50 group-hover:bg-indigo-100 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer">+86 180 5838 6292</button>
+                <a href="https://wa.me/8618058386292" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="carros Infantis eletricos brinquedo" data-number="+8619065022753">
+              <span class="font-medium text-slate-800 pr-2">#44 Carros Infantis</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8619065022753')" class="font-mono-num font-bold text-indigo-700 bg-indigo-50 group-hover:bg-indigo-100 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer">+86 190 6502 2753</button>
+                <a href="https://wa.me/8619065022753" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Material escolinha pedagogico" data-number="+8618939468991">
+              <span class="font-medium text-slate-800 pr-2">#70 Mat. Pedagógico Escolar</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8618939468991')" class="font-mono-num font-bold text-indigo-700 bg-indigo-50 group-hover:bg-indigo-100 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer">+86 189 3946 8991</button>
+                <a href="https://wa.me/8618939468991" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Escolinha brinquedos jogos" data-number="+8613531358462">
+              <span class="font-medium text-slate-800 pr-2">#73 Materiais p/ Creches</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8613531358462')" class="font-mono-num font-bold text-indigo-700 bg-indigo-50 group-hover:bg-indigo-100 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer">+86 135 3135 8462</button>
+                <a href="https://wa.me/8613531358462" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Tapete infantil eva tatame" data-number="+8613531185513">
+              <span class="font-medium text-slate-800 pr-2">#114 Tapetes Infantis EVA</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8613531185513')" class="font-mono-num font-bold text-indigo-700 bg-indigo-50 group-hover:bg-indigo-100 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer">+86 135 3118 5513</button>
+                <a href="https://wa.me/8613531185513" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Brinquedos bonecas jogos" data-number="+8618923719551">
+              <span class="font-medium text-slate-800 pr-2">#122 Brinquedos & Jogos</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8618923719551')" class="font-mono-num font-bold text-indigo-700 bg-indigo-50 group-hover:bg-indigo-100 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer">+86 189 2371 9551</button>
+                <a href="https://wa.me/8618923719551" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="pula pula inflavel cama elastica" data-number="+8618575808918">
+              <span class="font-medium text-slate-800 pr-2">#158 Pula-Pula Inflável</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8618575808918')" class="font-mono-num font-bold text-indigo-700 bg-indigo-50 group-hover:bg-indigo-100 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer">+86 185 7580 8918</button>
+                <a href="https://wa.me/8618575808918" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Kindy Carros infantis brinquedos" data-number="+8618331900909">
+              <span class="font-medium text-slate-800 pr-2">#161 Kindy Carros Elétricos</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8618331900909')" class="font-mono-num font-bold text-indigo-700 bg-indigo-50 group-hover:bg-indigo-100 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer">+86 183 3190 0909</button>
+                <a href="https://wa.me/8618331900909" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Brinquedos infantis atacado" data-number="+8615915144206">
+              <span class="font-medium text-slate-800 pr-2">#204 Brinquedos Atacado</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8615915144206')" class="font-mono-num font-bold text-indigo-700 bg-indigo-50 group-hover:bg-indigo-100 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer">+86 159 1514 4206</button>
+                <a href="https://wa.me/8615915144206" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Echo Liu Geral diverso" data-number="+8618838979370">
+              <span class="font-medium text-slate-800 pr-2">#6 Echo Liu (Multicategoria)</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8618838979370')" class="font-mono-num font-bold text-indigo-700 bg-indigo-50 group-hover:bg-indigo-100 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer">+86 188 3897 9370</button>
+                <a href="https://wa.me/8618838979370" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Fornecedor Smarkouyang diverso" data-number="+8617880618889">
+              <span class="font-medium text-slate-800 pr-2">#15 Smarkouyang Diverso</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8617880618889')" class="font-mono-num font-bold text-indigo-700 bg-indigo-50 group-hover:bg-indigo-100 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer">+86 178 8061 8889</button>
+                <a href="https://wa.me/8617880618889" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Photo Booth cabine fotos" data-number="+8613416089250">
+              <span class="font-medium text-slate-800 pr-2">#91 Cabines 360 Photo Booth</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8613416089250')" class="font-mono-num font-bold text-indigo-700 bg-indigo-50 group-hover:bg-indigo-100 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer">+86 134 1608 9250</button>
+                <a href="https://wa.me/8613416089250" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+            <li class="supplier-item group flex items-center justify-between p-1.5 rounded-lg hover:bg-slate-50 border-b border-slate-100 transition" data-name="Fornecedor Afra diverso" data-number="+8615055084189">
+              <span class="font-medium text-slate-800 pr-2">#195 Afra Fornecedor Geral</span>
+              <div class="flex items-center gap-1">
+                <button onclick="copyToClipboard('+8615055084189')" class="font-mono-num font-bold text-indigo-700 bg-indigo-50 group-hover:bg-indigo-100 px-2 py-1 rounded text-[11px] whitespace-nowrap transition cursor-pointer">+86 150 5508 4189</button>
+                <a href="https://wa.me/8615055084189" target="_blank" class="w-6 h-6 flex items-center justify-center rounded bg-emerald-50 text-emerald-600 hover:bg-emerald-600 hover:text-white transition no-print"><i class="fa-brands fa-whatsapp text-xs"></i></a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- RODAPÉ DO PÔSTER / AUTENTICAÇÃO -->
+    <footer class="mt-10 pt-6 border-t-2 border-slate-100 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-400 gap-3">
+      <div class="flex items-center gap-2">
+        <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
+        <span>Base de Dados Atualizada &bull; Edição Anual 2026</span>
+      </div>
+      <div class="font-mono text-center sm:text-right">
+        <span>Emissão Oficial &bull; Formato Cartaz Alta Resolução</span>
+      </div>
+    </footer>
+
+  </main>
+
+  <!-- ================= NOTIFICAÇÃO TOAST ================= -->
+  <div id="toast" class="fixed bottom-6 right-6 z-50 transform translate-y-20 opacity-0 transition-all duration-300 pointer-events-none">
+    <div class="bg-slate-900 border border-slate-700 text-white px-4 py-3 rounded-xl shadow-2xl flex items-center gap-3">
+      <div class="w-7 h-7 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-xs">
+        <i class="fa-solid fa-check"></i>
+      </div>
+      <div>
+        <p class="text-xs font-bold text-white" id="toastTitle">Copiado!</p>
+        <p class="text-[11px] text-slate-400" id="toastBody">Número copiado com sucesso.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= JAVASCRIPT LOGIC ================= -->
+  <script>
+    // --- 1. Função de Cópia com Fallback Seguro para iFrames ---
+    function copyToClipboard(text) {
+      try {
+        const textarea = document.createElement('textarea');
+        textarea.value = text;
+        textarea.style.position = 'fixed';
+        textarea.style.opacity = '0';
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textarea);
+        showToast("Contacto Copiado", text);
+      } catch (err) {
+        showToast("Erro ao copiar", "Selecione o número manualmente.");
+      }
+    }
+
+    // --- 2. Toast Feedback UI ---
+    let toastTimeout;
+    function showToast(title, msg) {
+      const toast = document.getElementById('toast');
+      const toastTitle = document.getElementById('toastTitle');
+      const toastBody = document.getElementById('toastBody');
+
+      toastTitle.textContent = title;
+      toastBody.textContent = msg;
+
+      toast.classList.remove('translate-y-20', 'opacity-0');
+      toast.classList.add('translate-y-0', 'opacity-100');
+
+      clearTimeout(toastTimeout);
+      toastTimeout = setTimeout(() => {
+        toast.classList.remove('translate-y-0', 'opacity-100');
+        toast.classList.add('translate-y-20', 'opacity-0');
+      }, 2500);
+    }
+
+    // --- 3. Filtro por Categoria ---
+    let currentCategory = 'all';
+    function filterCategory(cat) {
+      currentCategory = cat;
+      const pills = document.querySelectorAll('.cat-pill');
+      pills.forEach(p => {
+        p.classList.remove('bg-blue-600', 'text-white');
+        p.classList.add('bg-slate-800', 'text-slate-300');
+      });
+
+      // Ativar pílula atual
+      const activeBtn = Array.from(pills).find(b => b.getAttribute('onclick').includes(cat));
+      if (activeBtn) {
+        activeBtn.classList.remove('bg-slate-800', 'text-slate-300');
+        activeBtn.classList.add('bg-blue-600', 'text-white');
+      }
+
+      applyFilters();
+    }
+
+    // --- 4. Busca em Tempo Real e Aplicação de Filtros ---
+    const searchInput = document.getElementById('searchInput');
+    const clearSearchBtn = document.getElementById('clearSearchBtn');
+
+    searchInput.addEventListener('input', () => {
+      if (searchInput.value.trim().length > 0) {
+        clearSearchBtn.classList.remove('hidden');
+      } else {
+        clearSearchBtn.classList.add('hidden');
+      }
+      applyFilters();
+    });
+
+    clearSearchBtn.addEventListener('click', () => {
+      searchInput.value = '';
+      clearSearchBtn.classList.add('hidden');
+      searchInput.focus();
+      applyFilters();
+    });
+
+    function applyFilters() {
+      const term = searchInput.value.toLowerCase().trim();
+      const cards = document.querySelectorAll('.card-box');
+
+      cards.forEach(card => {
+        const cat = card.getAttribute('data-category');
+        const matchesCategory = (currentCategory === 'all' || currentCategory === cat);
+
+        if (!matchesCategory) {
+          card.classList.add('hidden');
+          return;
+        }
+
+        // Buscar itens dentro do card
+        const items = card.querySelectorAll('.supplier-item');
+        let visibleCount = 0;
+
+        items.forEach(item => {
+          const name = (item.getAttribute('data-name') || '').toLowerCase();
+          const number = (item.getAttribute('data-number') || '').toLowerCase();
+          const text = item.textContent.toLowerCase();
+
+          const matchesSearch = term === '' || name.includes(term) || number.includes(term) || text.includes(term);
+
+          if (matchesSearch) {
+            item.classList.remove('hidden');
+            visibleCount++;
+          } else {
+            item.classList.add('hidden');
+          }
+        });
+
+        // Se a busca estiver ativa e nenhum item for compatível neste cartão, oculta o cartão
+        if (term !== '' && visibleCount === 0) {
+          card.classList.add('hidden');
+        } else {
+          card.classList.remove('hidden');
+        }
+
+        // Atualiza contador dinâmico do card
+        const countBadge = card.querySelector('.cat-count');
+        if (countBadge) {
+          countBadge.textContent = visibleCount;
+        }
+      });
+    }
+
+    // --- 5. Modo de Exibição Compacto vs Expandido ---
+    let isCompact = false;
+    function toggleCompactMode() {
+      isCompact = !isCompact;
+      const lists = document.querySelectorAll('.supplier-list');
+      const toggleBtn = document.getElementById('toggleCompactBtn');
+
+      lists.forEach(list => {
+        if (isCompact) {
+          list.classList.remove('max-h-[480px]');
+          list.classList.add('max-h-[300px]');
+        } else {
+          list.classList.remove('max-h-[300px]');
+          list.classList.add('max-h-[480px]');
+        }
+      });
+
+      if (isCompact) {
+        toggleBtn.classList.add('bg-blue-600', 'text-white');
+        toggleBtn.classList.remove('bg-slate-800', 'text-slate-300');
+      } else {
+        toggleBtn.classList.remove('bg-blue-600', 'text-white');
+        toggleBtn.classList.add('bg-slate-800', 'text-slate-300');
+      }
+    }
+  </script>
+</body>
+</html>
